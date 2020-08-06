@@ -1,0 +1,14 @@
+*.pdf
+*.log
+*.ipynb
+*.pptx
+*.png
+*.mat
+untitled*.py
+__pycache__
+DC_OPF*
+DCOPF*
+'Jim Griffin copy'*
+*.mat
+Opt_lamb)mu.py
+
