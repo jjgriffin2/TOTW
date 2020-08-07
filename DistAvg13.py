@@ -500,6 +500,9 @@ class Node(object):
 
     def getX (self):
         return self.x
+    
+    def getTiming (self):
+        return self.msgDeltaTime
 
     def setStatus(self, status):
         self.status = status
@@ -762,7 +765,10 @@ if __name__ == '__main__':
     print (f'Elapsed time {timeSecs} seconds')
     print (f'Message rate: {msgsPSec} messages/second')
       
-    msgTiming = [ray.get(node.)]
+    msgTiming = [ray.get(node.getTiming.remote()) for node in nodeList]
+    print ('Latest time since ')
+    for i in range (nNode):
+        print (f'Node {i} message delays (seconds): {msgTiming[i]}')
     plt.figure()
     for v in valueLists:
         x,y = zip(*v)
